@@ -6,6 +6,7 @@ pipeline {
         maven 'M2_HOME'
     }
 
+
     environment {
         SONAR_HOST_URL = 'http://192.168.50.4:9000'
         SONAR_AUTH_TOKEN = credentials('SonarQube')
@@ -15,12 +16,17 @@ pipeline {
 
     stages {
 
+//Clones your project source code from GitHub.
+//Ensures Jenkins always works on the latest commit from the main branch.
+
         /*************** DEVELOPMENT PHASE ***************/
         stage('Checkout Code') {
             steps {
                 git branch: 'main', url: 'https://github.com/Oussama20000/devops.git'
             }
         }
+//Runs pre-commit hooks to automatically check code formatting, secrets, or linting before the build.
+// Prevents bad code or secrets from entering the repository.
 
        stage('Pre-commit Security Hooks') {
     steps {
@@ -32,11 +38,17 @@ pipeline {
     }
 }
 
+//Compiles your Java application.
+//Runs JUnit tests.
+//Packages it into a .jar file.
+  
         stage('Build, Test & Package') {
             steps {
                 sh 'mvn clean package'
             }
         }
+
+//Confirms that the .jar artifact was successfully built and exists in the target/ directory.
 
         stage('Verify JAR') {
             steps {
@@ -44,11 +56,16 @@ pipeline {
             }
         }
 
+//Generates a code coverage report for the unit tests.
+//Measures how much of the codebase is covered by tests.
+
         stage('JaCoCo Report') {
             steps {
                 sh 'mvn jacoco:report'
             }
         }
+        
+//Publishes the JaCoCo report in the Jenkins dashboard.
 
         stage('JaCoCo coverage report') {
             steps {
@@ -76,6 +93,10 @@ pipeline {
             }
         }
 
+//Performs Software Composition Analysis (SCA).
+//Detects vulnerable dependencies in your project.
+//Generates a detailed HTML report for review.
+
         stage('SCA - Dependency Check') {
             steps {
                 script {
@@ -93,7 +114,10 @@ pipeline {
             }
         }
 
-        
+//Detects hardcoded secrets (API keys, passwords) in your repository.
+//Ensures sensitive data does not leak into version control.
+//Generates a JSON report.
+
         stage('Secrets Scan - Gitleaks') {
     steps {
         script {
@@ -136,6 +160,9 @@ pipeline {
     }
 }
 
+//Builds the Docker image for deployment.
+//Scans the Docker image for vulnerabilities using Trivy.
+//Generates a HTML report of detected vulnerabilities.
 
 /*************** DOCKER BUILD & SECURITY SCAN ***************/
  stage('Docker Build & Scan') {
@@ -179,6 +206,9 @@ pipeline {
             }
         }
 
+//Deploys the compiled artifact (.jar) to a Nexus repository.
+//Ensures safe storage and versioning of artifacts.
+
         /*************** PRODUCTION PHASE ***************/
         stage('Deploy to Nexus') {
     steps {
@@ -192,6 +222,9 @@ pipeline {
     }
 }
 
+//Pushes the Docker image to DockerHub for deployment.
+//Prepares the image for production environments.
+
         stage('Deploy Docker Image') {
             steps {
                 withCredentials([string(credentialsId: 'dockerhub-jenkins-token', variable: 'dockerhub_token')]) {
@@ -200,6 +233,10 @@ pipeline {
                 }
             }
         }
+
+//Performs Dynamic Application Security Testing (DAST).
+//Detects runtime vulnerabilities like XSS, SQL Injection, and insecure headers.
+//Generates an HTML report (zap-report.html) for review.
 
         /*************** ACCEPTANCE / QA POST-DEPLOY ***************/
    stage('DAST - OWASP ZAP Scan') {
@@ -215,6 +252,8 @@ pipeline {
             }
         }
 
+//Ensures Grafana and Prometheus monitoring containers are running.
+//Provides metrics and logs for observability post-deployment.
 
         /*************** OPERATIONS PHASE ***************/
         stage('Start Monitoring Containers') {
@@ -223,6 +262,9 @@ pipeline {
                 sh 'docker start prometheus || true'
             }
         }
+
+//Sends email notifications to inform stakeholders about the pipeline status.
+//Ensures prompt feedback on success or failure.
 
         stage('Email Notification') {
             steps {
