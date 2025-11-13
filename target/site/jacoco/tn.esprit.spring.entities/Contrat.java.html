@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Contrat.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">timesheet-devops</a> &gt; <a href="index.source.html" class="el_package">tn.esprit.spring.entities</a> &gt; <span class="el_source">Contrat.java</span></div><h1>Contrat.java</h1><pre class="source lang-java linenums">package tn.esprit.spring.entities;
+
+import java.io.Serializable;
+import java.util.Date;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+@Entity
+public class Contrat implements Serializable {
+	
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	private Long reference;
+	
+	@Temporal(TemporalType.DATE)
+	private Date dateDebut;
+	 
+	private String typeContrat;
+ 
+	@JsonIgnore
+	@OneToOne(mappedBy=&quot;contrat&quot;)
+	private Employe employe;
+
+	private float salaire;
+
+	public Contrat() {
+<span class="nc" id="L41">		super();</span>
+<span class="nc" id="L42">	}</span>
+	
+<span class="nc" id="L44">	public Contrat(Date dateDebut, String typeContrat, float salaire) {</span>
+<span class="nc" id="L45">		this.dateDebut = dateDebut;</span>
+<span class="nc" id="L46">		this.typeContrat = typeContrat;</span>
+<span class="nc" id="L47">		this.salaire = salaire;</span>
+<span class="nc" id="L48">	}</span>
+
+
+	public Date getDateDebut() {
+<span class="nc" id="L52">		return dateDebut;</span>
+	}
+
+	public void setDateDebut(Date dateDebut) {
+<span class="nc" id="L56">		this.dateDebut = dateDebut;</span>
+<span class="nc" id="L57">	}</span>
+ 
+	public Long getReference() {
+<span class="nc" id="L60">		return reference;</span>
+	}
+
+	public void setReference(Long reference) {
+<span class="nc" id="L64">		this.reference = reference;</span>
+<span class="nc" id="L65">	}</span>
+
+	public String getTypeContrat() {
+<span class="nc" id="L68">		return typeContrat;</span>
+	}
+
+	public void setTypeContrat(String typeContrat) {
+<span class="nc" id="L72">		this.typeContrat = typeContrat;</span>
+<span class="nc" id="L73">	}</span>
+
+	public float getSalaire() {
+<span class="nc" id="L76">		return salaire;</span>
+	}
+
+	public void setSalaire(float salaire) {
+<span class="nc" id="L80">		this.salaire = salaire;</span>
+<span class="nc" id="L81">	}</span>
+
+	public Employe getEmploye() {
+<span class="nc" id="L84">		return employe;</span>
+	}
+
+	public void setEmploye(Employe employe) {
+<span class="nc" id="L88">		this.employe = employe;</span>
+<span class="nc" id="L89">	}</span>
+ 
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

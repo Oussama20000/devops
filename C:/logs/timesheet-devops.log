@@ -1,0 +1,25 @@
+2025-11-13 12:52:47 - INFO  - tn.esprit.spring.TimesheetDevopsApplication - Starting TimesheetDevopsApplication v1.0 using Java 21.0.8 on vagrant with PID 2322 (/home/devops/target/timesheet-devops-1.0.jar started by vagrant in /home/devops)
+2025-11-13 12:52:47 - INFO  - tn.esprit.spring.TimesheetDevopsApplication - No active profile set, falling back to default profiles: default
+2025-11-13 12:52:56 - INFO  - org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2025-11-13 12:52:56 - INFO  - org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.52]
+2025-11-13 12:52:56 - INFO  - o.a.c.c.C.[Tomcat].[localhost].[/timesheet-devops] - Initializing Spring embedded WebApplicationContext
+2025-11-13 12:52:57 - INFO  - org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-11-13 12:52:58 - INFO  - org.hibernate.Version - HHH000412: Hibernate ORM core version 5.4.32.Final
+2025-11-13 12:52:59 - INFO  - org.hibernate.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2025-11-13 12:53:03 - INFO  - org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+2025-11-13 12:53:08 - INFO  - o.h.e.transaction.jta.platform.internal.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2025-11-13 12:53:12 - WARN  - o.s.b.a.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-11-13 12:53:15 - INFO  - tn.esprit.spring.TimesheetDevopsApplication - Started TimesheetDevopsApplication in 32.653 seconds (JVM running for 38.165)
+2025-11-13 13:03:26 - INFO  - tn.esprit.spring.TimesheetDevopsApplication - Starting TimesheetDevopsApplication v1.0 using Java 21.0.8 on vagrant with PID 3610 (/home/devops/target/timesheet-devops-1.0.jar started by vagrant in /home/devops)
+2025-11-13 13:03:26 - INFO  - tn.esprit.spring.TimesheetDevopsApplication - No active profile set, falling back to default profiles: default
+2025-11-13 13:03:32 - INFO  - org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2025-11-13 13:03:32 - INFO  - org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.52]
+2025-11-13 13:03:32 - INFO  - o.a.c.c.C.[Tomcat].[localhost].[/timesheet-devops] - Initializing Spring embedded WebApplicationContext
+2025-11-13 13:03:33 - INFO  - org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-11-13 13:03:33 - INFO  - org.hibernate.Version - HHH000412: Hibernate ORM core version 5.4.32.Final
+2025-11-13 13:03:33 - INFO  - org.hibernate.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2025-11-13 13:03:35 - INFO  - org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+2025-11-13 13:03:37 - INFO  - o.h.e.transaction.jta.platform.internal.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2025-11-13 13:03:39 - WARN  - o.s.b.a.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-11-13 13:03:40 - INFO  - tn.esprit.spring.TimesheetDevopsApplication - Started TimesheetDevopsApplication in 16.215 seconds (JVM running for 18.198)
+2025-11-13 13:47:08 - WARN  - com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=40m33s21ms146µs543ns).
