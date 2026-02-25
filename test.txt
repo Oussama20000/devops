@@ -1,3 +1,118 @@
-blabla
-jj
-oo
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Security Incident Alert</title>
+    <style>
+        /* General Reset */
+        body, table, td, a { -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
+        table, td { mso-table-lspace: 0pt; mso-table-rspace: 0pt; }
+        img { -ms-interpolation-mode: bicubic; border: 0; height: auto; line-height: 100%; outline: none; text-decoration: none; }
+        table { border-collapse: collapse !important; }
+        body { height: 100% !important; margin: 0 !important; padding: 0 !important; width: 100% !important; background-color: #f4f6fa; font-family: 'Inter', Helvetica, Arial, sans-serif; }
+
+        /* Responsive Logic */
+        @media screen and (max-width: 600px) {
+            .column { display: block !important; width: 100% !important; }
+            .header-text { font-size: 14px !important; }
+        }
+    </style>
+</head>
+<body style="margin: 0; padding: 20px 0; background-color: #f4f6fa;">
+    <center>
+        <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 700px; background-color: #ffffff; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
+            
+            <tr>
+                <td align="left" style="background-color: #024bd4; padding: 15px 30px; border-top-left-radius: 8px; border-top-right-radius: 8px;">
+                    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                        <tr>
+                            <td align="left" width="40" style="vertical-align: middle; padding-right: 12px;">
+                                <img src="https://th.bing.com/th/id/OIP.TujpHE0EEIEmJcRs4MdvZAAAAA?o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Logo" width="35" style="display: block; width: 35px; height: auto;">
+                            </td>
+                            <td align="left" class="header-text" style="color: #ffffff; font-size: 18px; font-weight: bold; letter-spacing: 1px; vertical-align: middle;">
+                                SECURITY INCIDENT ALERT
+                            </td>
+                            <td align="right" style="vertical-align: middle;">
+                                <span style="background-color: #ffa100; color: #0d0d0d; padding: 5px 15px; border-radius: 20px; font-size: 11px; font-weight: bold; text-transform: uppercase;">
+                                    {{severity_label}}
+                                </span>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+
+            <tr>
+                <td style="padding: 25px 30px 5px 30px; background-color: #f4f6fa;">
+                    <h1 style="margin: 0; color: #023a8d; font-size: 22px; font-weight: 800; line-height: 1.2;">
+                        {{incident_title}}
+                    </h1>
+                </td>
+            </tr>
+
+            <tr>
+                <td style="padding: 15px 30px 20px 30px; background-color: #f4f6fa;">
+                    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                        <tr>
+                            <td class="column" width="48%" valign="top" style="padding-bottom: 10px;">
+                                <div style="background-color: #ffffff; border: 1px solid #e1e4e8; border-radius: 6px; padding: 15px;">
+                                    <table width="100%">
+                                        <tr><td style="padding-bottom: 8px;"><span style="color: #666666; font-size: 11px; text-transform: uppercase; font-weight: 600;">Incident ID</span><br><span style="color: #023a8d; font-size: 14px; font-weight: bold;">{{incident_id}}</span></td></tr>
+                                        <tr><td style="padding-bottom: 8px;"><span style="color: #666666; font-size: 11px; text-transform: uppercase; font-weight: 600;">Source</span><br><span style="color: #1969ff; font-size: 14px;">{{source}}</span></td></tr>
+                                        <tr><td style="padding-bottom: 8px;"><span style="color: #666666; font-size: 11px; text-transform: uppercase; font-weight: 600;">Status</span><br><span style="color: #023a8d; font-size: 14px;">{{status}}</span></td></tr>
+                                        <tr><td style="padding-bottom: 8px;"><span style="color: #666666; font-size: 11px; text-transform: uppercase; font-weight: 600;">Severity</span><br><span style="color: #023a8d; font-size: 14px;">{{severity}}</span></td></tr>
+                                        <tr><td><span style="color: #666666; font-size: 11px; text-transform: uppercase; font-weight: 600;">Action Attendu</span><br><span style="color: #1969ff; font-size: 14px; font-weight: bold;">{{action_attendu}}</span></td></tr>
+                                    </table>
+                                </div>
+                            </td>
+                            <td class="column" width="4%">&nbsp;</td>
+                            <td class="column" width="48%" valign="top">
+                                <div style="background-color: #ffffff; border: 1px solid #e1e4e8; border-radius: 6px; padding: 15px;">
+                                    <table width="100%">
+                                        <tr><td style="padding-bottom: 8px;"><span style="color: #666666; font-size: 11px; text-transform: uppercase; font-weight: 600;">Case ID</span><br><span style="color: #023a8d; font-size: 14px; font-weight: bold;">{{case_id}}</span></td></tr>
+                                        <tr><td style="padding-bottom: 8px;"><span style="color: #666666; font-size: 11px; text-transform: uppercase; font-weight: 600;">Machine Impacted</span><br><span style="color: #1969ff; font-size: 14px;">{{machine_impacted}}</span></td></tr>
+                                        <tr><td style="padding-bottom: 8px;"><span style="color: #666666; font-size: 11px; text-transform: uppercase; font-weight: 600;">User</span><br><span style="color: #023a8d; font-size: 14px;">{{user}}</span></td></tr>
+                                        <tr><td style="padding-bottom: 8px;"><span style="color: #666666; font-size: 11px; text-transform: uppercase; font-weight: 600;">Impact Status</span><br><span style="color: #023a8d; font-size: 14px;">{{impact_status}}</span></td></tr>
+                                        <tr><td><span style="color: #666666; font-size: 11px; text-transform: uppercase; font-weight: 600;">Date</span><br><span style="color: #023a8d; font-size: 14px;">{{date}}</span></td></tr>
+                                    </table>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+
+            <tr>
+                <td style="padding: 0 30px 20px 30px;">
+                    <div style="background-color: #ffffff; border: 1px solid #e1e4e8; border-radius: 6px; padding: 20px;">
+                        <h3 style="margin: 0 0 10px 0; color: #0d0d0d; font-size: 16px;">Description</h3>
+                        <p style="margin: 0; color: #444444; font-size: 14px; line-height: 1.6;">
+                            {{description}}
+                        </p>
+                    </div>
+                </td>
+            </tr>
+
+            <tr>
+                <td style="padding: 0 30px 30px 30px;">
+                    <h3 style="margin: 0 0 12px 0; color: #0d0d0d; font-size: 16px;">Tactics, Techniques & Procedures (TTP)</h3>
+                    <div style="line-height: 2.2;">
+                        {{#each ttp_tags}}
+                        <span style="background-color: #1969ff; color: #ffffff; padding: 4px 10px; border-radius: 4px; font-size: 12px; font-family: monospace; margin-right: 5px; white-space: nowrap;">{{this}}</span>
+                        {{/each}}
+                    </div>
+                </td>
+            </tr>
+
+            <tr>
+                <td align="center" style="background-color: #024bd4; padding: 20px; border-bottom-left-radius: 8px; border-bottom-right-radius: 8px;">
+                    <p style="margin: 0; color: #ffffff; font-size: 11px; opacity: 0.8;">
+                        Generated by SOAR Automation - Powered by WifakBank Ecosystem
+                    </p>
+                </td>
+            </tr>
+        </table>
+    </center>
+</body>
+</html>
